@@ -43,7 +43,7 @@ function App() {
     registration_code: '',
     is_busy: false,
     last_use_time: '',
-    total_ride_kilometres: '',
+    total_ride_kilometers: '',
     one_day_ride: ''
   });
 

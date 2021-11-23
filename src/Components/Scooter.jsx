@@ -35,8 +35,8 @@ function Scooter({ scooter, deleteScooter, modal }) {
                 <div>{scooter.last_use_time}</div>
             </div>
             <div className='each-item'>
-                <span>Total ride kilometres: </span>
-                <div>{scooter.total_ride_kilometres}</div>
+                <span>Total ride kilometers: </span>
+                <div>{scooter.total_ride_kilometers}</div>
             </div>
             <div className='each-item'>
                 <span>One day ride: </span>

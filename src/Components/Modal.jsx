@@ -6,7 +6,7 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
         registration_code: '',
         is_busy: false,
         last_use_time: '',
-        total_ride_kilometres: '',
+        total_ride_kilometers: '',
         one_day_ride: ''
     })
 
@@ -24,7 +24,7 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
             registration_code: modalElement.registration_code,
             is_busy: modalElement.is_busy,
             last_use_time: modalElement.last_use_time,
-            total_ride_kilometres: modalElement.total_ride_kilometres,
+            total_ride_kilometers: modalElement.total_ride_kilometers,
             one_day_ride: modalElement.one_day_ride
         })
     }, [modalElement])
@@ -34,7 +34,7 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
             registration_code: inputs.registration_code,
             is_busy: inputs.is_busy,
             last_use_time: inputs.last_use_time,
-            total_ride_kilometres: inputs.total_ride_kilometres,
+            total_ride_kilometers: inputs.total_ride_kilometers,
             one_day_ride: inputs.one_day_ride
         }, modalElement.id)
     }
@@ -47,7 +47,7 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
                 <span>Registration code: </span> <input type="text" value={inputs.registration_code} onChange={(e) => control(e, 'registration_code,')} readOnly />
             </div>
             <div className='each-modal'>
-                <span>Total ride kilometres: </span> <input type="number" value={inputs.total_ride_kilometres} onChange={(e) => control(e, 'total_ride_kilometres')} readOnly />
+                <span>Total ride kilometers: </span> <input type="number" value={inputs.total_ride_kilometers} onChange={(e) => control(e, 'total_ride_kilometers')} readOnly />
             </div>
             <div className='each-modal'>
                 <span>Last use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} readOnly />
@@ -60,7 +60,7 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
                 <span>Update use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} required />
             </div>
             <div className='each-modal'>
-                <span>Update one day ride kilometres: </span> <input type="number" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')} required />
+                <span>Update one day ride kilometers: </span> <input type="number" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')} required />
             </div>
             <div className='each-modal'>
             <button onClick={handleEdit}>Save</button>

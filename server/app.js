@@ -78,14 +78,14 @@ app.delete('/scooters/:id', (req, res) => {
 app.put('/scooters/:id', (req, res) => {
   const sql = `
       UPDATE scooters
-      SET registration_code = ?, is_busy = ?, last_use_time = ?, total_ride_kilometres = ?, one_day_ride = ?
+      SET registration_code = ?, is_busy = ?, last_use_time = ?, total_ride_kilometers = ?, one_day_ride = ?
       WHERE id = ?
   `;
   con.query(sql, [
     req.body.registration_code,
     req.body.is_busy,
     req.body.last_use_time,
-    parseFloat(req.body.total_ride_kilometres) + parseFloat(req.body.one_day_ride),
+    parseFloat(req.body.total_ride_kilometers) + parseFloat(req.body.one_day_ride),
     req.body.one_day_ride,
     req.params.id
   ], (err, results) => {
@@ -100,14 +100,14 @@ app.put('/scooters/:id', (req, res) => {
 app.post('/scooters', (req, res) => {
   const sql = `
       INSERT INTO scooters
-      (registration_code, is_busy, last_use_time, total_ride_kilometres, one_day_ride)
+      (registration_code, is_busy, last_use_time, total_ride_kilometers, one_day_ride)
       VALUES (?, ?, ?, ?, ?)
   `;
   con.query(sql, [
     req.body.registration_code,
     req.body.is_busy,
     req.body.last_use_time,
-    req.body.total_ride_kilometres,
+    req.body.total_ride_kilometers,
     req.body.one_day_ride,
   ], (err, results) => {
     if (err) {
