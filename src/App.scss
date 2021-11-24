@@ -27,11 +27,12 @@
 
     .list {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         justify-items: center;
         align-items: baseline;
-        margin: 10px;
+        margin: 5px;
+        padding: 5px;
         box-shadow: 0 0 30px #fbde44ff;
         border: 1px solid #fff;
         border-radius: 10px;
@@ -40,14 +41,22 @@
 
         span {
             color: #fbde44ff;
-            padding: 10px;
-            margin: 10px;
+            padding: 5px;
+            margin: 5px;
         }
         .each-item {
             color: #f65058ff;
-            padding: 10px;
-            margin: 10px;
+            padding: 5px;
+            margin: 5px;
         }
+    }
+    .extra-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     .new-item {
@@ -65,18 +74,20 @@
 
         .each-new-item {
             display: flex;
-            align-items: baseline;
+            align-items: center;
+            padding: 10px;
 
             span {
                 color: #fbde44ff;
-                margin: 10px;
                 padding: 5px;
+                margin: 5px;
             }
             input {
                 box-shadow: 0 0 30px #f65058ff;
                 border: 1px solid #fff;
                 background-color: #e6fdb0;
                 border-radius: 10px;
+                text-align: center;
             }
         }
     }
@@ -94,17 +105,20 @@
         font-weight: bold;
         .each-modal {
             display: flex;
-            align-items: baseline;
+            align-items: center;
+            padding: 10px;
+
             span {
                 color: #fbde44ff;
-                margin: 10px;
                 padding: 5px;
+                margin: 5px;
             }
             input {
                 box-shadow: 0 0 30px #f65058ff;
                 border: 1px solid #fff;
                 border-radius: 10px;
                 background-color: #e6fdb0;
+                text-align: center;
             }
         }
     }
@@ -123,15 +137,19 @@
 
         .each-filter {
             display: flex;
-            align-items: baseline;
+            align-items: center;
+            display: flex;
+            padding: 10px;
 
             span {
                 color: #fbde44ff;
-                margin: 10px;
                 padding: 5px;
+                margin: 5px;
             }
             select {
                 background-color: #e6fdb0;
+                border: 1px solid #fff;
+                border-radius: 10px;
 
                 option {
                     color: #f65058ff;
@@ -143,6 +161,7 @@
                 box-shadow: 0 0 30px #f65058ff;
                 border: 1px solid #fff;
                 border-radius: 10px;
+                text-align: center;
             }
         }
     }
@@ -161,8 +180,8 @@
 
         span {
             color: #fbde44ff;
-            margin: 10px;
             padding: 5px;
+            margin: 5px;
 
             i {
                 color: #f65058ff;
@@ -186,8 +205,8 @@
 
         span {
             color: #fbde44ff;
-            margin: 10px;
             padding: 5px;
+            margin: 5px;
 
             i {
                 color: #f65058ff;
@@ -207,7 +226,7 @@
         margin-top: -40px;
         top: 0;
         transition: all 0.3s;
-        // overflow: hidden;
+        overflow: hidden;
 
         span {
             color: #f65058ff;
@@ -240,6 +259,168 @@
         background-position: right center; /* change the direction of the change here*/
         color: #f65058ff;
         text-decoration: none;
-        cursor:grab;
+        cursor: grab;
+    }
+}
+
+// // RESPONSIVE DESIGN
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .general {
+        .new-item,
+        .each-new-item,
+        .list,
+        .general-modal,
+        .each-modal,
+        .general-filter,
+        .each-filter,
+        .statistic-list,
+        .statistic-results {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .general {
+        .list,
+        .statistic-list,
+        .statistic-results {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .general-filter,
+        .general-modal,
+        .each-modal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .new-item,
+        .each-new-item {
+            display: block;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .general {
+        .list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .statistic-list,
+        .statistic-results,
+        .general-modal,
+        .general-filter,
+        .each-filter,
+        .each-modal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .new-item,
+        .each-new-item {
+            display: block;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .general {
+        .list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .statistic-list,
+        .statistic-results .new-item,
+        .each-new-item,
+        .general-modal,
+        .general-filter,
+        .each-filter,
+        .each-modal {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .general {
+        .new-item,
+        .each-new-item,
+        .general-modal,
+        .each-modal,
+        .general-filter,
+        .each-filter,
+        .statistic-list,
+        .statistic-results {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    }
+    .general {
+        .list {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
     }
 }

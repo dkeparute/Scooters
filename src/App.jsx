@@ -167,6 +167,29 @@ function App() {
   }
   // ---------------------------------------------------------------
 
+    // JEIGU REIKIA PAPRASTO SORTO TAI CIA PVZ
+
+     const simpleSort = by => {
+      const scootersCopy = scooters.slice();
+      if ('last_use_time' === by) {
+        scootersCopy.sort((a, b) => {
+          if (a.last_use_time > b.last_use_time) {
+            return 1
+          }
+          if (a.last_use_time < b.last_use_time) {
+            return -1
+          }
+          return 0
+        })
+        setScooters(scootersCopy)
+      }
+      if ('total_ride_kilometers' === by) {
+        scootersCopy.sort((a, b) => a.total_ride_kilometers - b.total_ride_kilometers)
+        setScooters(scootersCopy)
+      }
+    }
+
+// -----------------------------------------------------------------------------------------
   // Message
   const [showMsg, setShowMsg] = useState(false);
   const msg = useRef('labas');
@@ -188,7 +211,7 @@ function App() {
       <Message showMsg={showMsg} msg={msg.current} />
       <NewScooter create={create} />
       <Statistic stats={stats} groupStats={groupStats} />
-      <Filter sort={sort} code={code} setFilterBy={setFilterBy} setSearchBy={setSearchBy} reset={reset} />
+      <Filter sort={sort} code={code} setFilterBy={setFilterBy} setSearchBy={setSearchBy} reset={reset} simpleSort={simpleSort}/>
       <Modal showModal={showModal} hide={hide} modalElement={modalElement} deleteScooter={deleteScooter} edit={edit} />
       <Scooters scooters={scooters} deleteScooter={deleteScooter} modal={modal} />
     </div>

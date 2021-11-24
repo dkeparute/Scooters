@@ -30,12 +30,12 @@ function Scooter({ scooter, deleteScooter, modal }) {
             <div className='each-item'>
                 <div>{busy(scooter.is_busy)}</div>
             </div>
+            <span>Last use time: </span>
             <div className='each-item'>
-                <span>Last use time: </span>
                 <div>{scooter.last_use_time}</div>
             </div>
+            <span>Total ride kilometers: </span>
             <div className='each-item'>
-                <span>Total ride kilometers: </span>
                 <div>{scooter.total_ride_kilometers}</div>
             </div>
             <div className='each-item'>
@@ -43,8 +43,8 @@ function Scooter({ scooter, deleteScooter, modal }) {
                 <div>{scooter.one_day_ride}</div>
             </div>
             <button onClick={() => deleteScooter(scooter.id)}>Delete</button>
-                <button onClick={showEdit}>Edit</button>
-            </div>
+            <button onClick={showEdit}>Edit</button>
+        </div>
     );
 
 }

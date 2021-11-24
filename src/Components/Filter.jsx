@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function Filter({ sort, code, setFilterBy, setSearchBy, reset }) {
+function Filter({ sort, code, setFilterBy, setSearchBy, reset, simpleSort }) {
 
     // SORT ------------------------------------------
     const [sortValue, setSortValue] = useState('');
@@ -35,6 +35,9 @@ function Filter({ sort, code, setFilterBy, setSearchBy, reset }) {
         sort('');
     }
 
+    // JEIGU REIKIA PAPRASTO SORTO TAI CIA PVZ
+
+
 
     return (
         <div className='general-filter'>
@@ -64,7 +67,14 @@ function Filter({ sort, code, setFilterBy, setSearchBy, reset }) {
                     if (!/['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]/.test(event.key)) { event.preventDefault(); }
                 }} />
             </div>
-            <button onClick={resetHandler}>Reset</button>
+            {/* PAPRASTAS SORTAS SU DVIEM MYGTUKAIS */}
+            <div className='each-filter'>
+                {/* SEARCH */}
+                <span>Simple sort: </span>
+                <button onClick={() => simpleSort("total_ride_kilometers")}>Km</button>
+                <button onClick={() => simpleSort("last_use_time")}>Time</button>
+                <button onClick={resetHandler}>Reset</button>
+            </div>
         </div>
 
     );
