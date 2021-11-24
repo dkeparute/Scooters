@@ -40,6 +40,8 @@ function Filter({ sort, code, setFilterBy, setSearchBy, reset, simpleSort }) {
 
 
     return (
+        <>
+        <h2>Filter & Sort</h2>
         <div className='general-filter'>
             <div className='each-filter'>
                 {/* SORT------------------------------------------------ */}
@@ -76,7 +78,7 @@ function Filter({ sort, code, setFilterBy, setSearchBy, reset, simpleSort }) {
                 <button onClick={resetHandler}>Reset</button>
             </div>
         </div>
-
+</>
     );
 }
 export default Filter;

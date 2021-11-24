@@ -2,6 +2,7 @@ function Statistic({ stats, groupStats }) {
 
     return (
         <div>
+            <h2>Statistic</h2>
             <div className='statistic-results'>
                 <span>Scooters count: <i>{stats.scootersCount}</i></span>
                 <span>Total scooters km: <i>{stats.scootersKm.toFixed(2)}</i> km</span>
@@ -15,4 +16,4 @@ function Statistic({ stats, groupStats }) {
         </div>
     )
 }
-export default  Statistic;
+export default Statistic;

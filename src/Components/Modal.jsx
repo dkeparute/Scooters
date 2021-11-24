@@ -42,7 +42,9 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
 
 
     return (
+
         <div className='general-modal' style={{ display: showModal ? 'block' : 'none', top: window.scrollY + 100 + 'px' }}>
+               <h2>Edit</h2>
             <div className='each-modal'>
                 <span>Registration code: </span> <input type="text" value={inputs.registration_code} onChange={(e) => control(e, 'registration_code,')} readOnly />
             </div>
@@ -69,7 +71,6 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
             <button onClick={() => deleteScooter(modalElement.id)}>Delete</button>
             </div>
         </div>
-
     );
 }
 export default Modal;

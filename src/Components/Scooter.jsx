@@ -21,7 +21,10 @@ function Scooter({ scooter, deleteScooter, modal }) {
     }
 
     return (
+        <>
+   
         <div className='list'>
+        <h2>List</h2>
             <span>Registration code: </span>
             <div className='each-item'>
                 <div>{scooter.registration_code}</div>
@@ -45,6 +48,7 @@ function Scooter({ scooter, deleteScooter, modal }) {
             <button onClick={() => deleteScooter(scooter.id)}>Delete</button>
             <button onClick={showEdit}>Edit</button>
         </div>
+        </>
     );
 
 }
