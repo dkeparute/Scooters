@@ -116,3 +116,80 @@ app.post('/scooters', (req, res) => {
     res.send(results);
   })
 })
+
+// ------------------------------------------------------
+// Statistic
+app.get('/stats', (req, res) => {
+  const sql = `
+SELECT COUNT(id) as scootersCount, SUM(total_ride_kilometers+one_day_ride) as scootersKm, AVG(total_ride_kilometers) as scootersAverage
+FROM scooters
+`;
+  // console.log(req.query.s);
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+
+// Group statistic
+app.get('/group-stats', (req, res) => {
+  const sql = `
+SELECT COUNT(id) as scootersCount, registration_code
+FROM scooters
+GROUP BY registration_code
+ORDER BY total_ride_kilometers desc
+`;
+  // console.log(req.query.s);
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+    if (err) {
+      throw err;
+    }
+    res.send(results);
+  })
+})
+// -------------------------------------------------------------------------------------------------
+// Finds different DISTINCT registration_code
+app.get('/scooters-code', (req, res) => {
+  const sql = `
+  SELECT DISTINCT registration_code
+  FROM scooters
+  `;
+  con.query(sql, (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
+// ----------------------------------------------------------------------------------------------------------
+// Filter by registration code
+app.get('/scooters-filter/:t', (req, res) => {
+  const sql = `
+  SELECT *
+  FROM scooters
+  WHERE registration_code = ?
+  `;
+  con.query(sql, [req.params.t], (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
+// ---------------------------------------------------------------------------
+// Search by registration_code
+app.get('/scooters-search', (req, res) => {
+  const sql = `
+  SELECT *
+  FROM scooters
+  WHERE registration_code like ?
+  `;
+  con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
+      if (err) {
+          throw err;
+      }
+      res.send(results);
+  })
+})
