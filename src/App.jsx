@@ -20,7 +20,7 @@ function App() {
         console.log(res.data);
       })
   }, [])
-  // -------------------------------------------------------
+  // -------------------------------------------------------STARTAS--------------------------------------------------------------
   const [scooters, setScooters] = useState([]);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 

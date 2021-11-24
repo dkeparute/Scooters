@@ -1,4 +1,4 @@
-
+// Message
 function Message({msg, showMsg}) {
 
     return(

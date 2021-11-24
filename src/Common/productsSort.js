@@ -1,3 +1,5 @@
+// SORTUI REIKALINGA DALIS
+
 function productsSort(state, by) {
     const scootersCopy = state.slice();
 

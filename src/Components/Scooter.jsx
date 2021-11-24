@@ -12,6 +12,7 @@ function Scooter({ scooter, deleteScooter, modal }) {
     day = day.substring(day.length - 2);
     scooter.last_use_time = `${d.getFullYear()}-${month}-${day}`;
 
+    // TINYINTI VALIDATION (IS BUSSY)
     const busy = (b) => {
         if (b === 1) {
             return 'Not-available';
