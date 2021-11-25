@@ -1,5 +1,6 @@
 function Scooter({ scooter, deleteScooter, modal }) {
 
+    // paspaudus showEdit turi išlysti modalas
     const showEdit = () => {
         modal(scooter)
     }

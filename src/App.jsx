@@ -13,7 +13,7 @@ import Message from "./Components/Message";
 
 function App() {
 
-  // Testas
+  // Testui naudojamas hookas UseEffect, kuris turi 2 argumentus: wrapinta funkcija ir masyvas
   useEffect(() => {
     axios.get('http://localhost:3003/test')
       .then(res => {
@@ -24,7 +24,7 @@ function App() {
   const [scooters, setScooters] = useState([]);
   const [lastUpdate, setLastUpdate] = useState(Date.now());
 
-  // Read node
+  // Read node (Reaktas kreipsis į serverį jog atspausdintų visus skūterius iš DB)
   useEffect(() => {
     axios.get('http://localhost:3003/scooters')
       .then(res => {
@@ -46,7 +46,11 @@ function App() {
   }
   // -----------------------------------------
   // Modal
+
+  // cia nurodoma kada modalas pasirodys ir kada ne
   const [showModal, setShowModal] = useState(false);
+
+  // cia aprasoma kas bus parodyta modalo lange
   const [modalElement, setModalElement] = useState({
     registration_code: '',
     is_busy: false,
@@ -55,11 +59,13 @@ function App() {
     one_day_ride: ''
   });
 
+  // cia yra modalo valdymo funkcionalumas
   const modal = (scooter) => {
     setShowModal(true);
     setModalElement(scooter);
   }
 
+  // funkcionalumas paspaudus mygtuka hide modalo langas dings
   const hide = () => {
     setShowModal(false);
   }

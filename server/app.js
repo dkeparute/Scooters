@@ -1,4 +1,4 @@
-// Express serverio instaliavimas
+// Express serverio sukurimas
 const express = require('express')
 const app = express()
 const port = 3003
@@ -36,17 +36,20 @@ app.use(express.urlencoded({
 }))
 app.use(express.json());
 
-// Routeris - nusakomas kelias kas turi ivykti kai narsykle kreipsis ir ka serveris atsakys
-
+// Routeris - nusakomas kelias kas turi ivykti kai serveris kreipsis ir ka narsykle atsakys
 app.get('/labas/:id', (req, res) => {
   res.send(`labas tau ${req.params.id} `)
 })
+
+// Testinis routas
 app.get('/test', (req, res) => {
   res.send(JSON.stringify({ test: 'OK' }))
 })
 //   -------------------------------------------------------------------------------STARTAS-----------------------------------------
 
 // Read node
+// kreipiames į DB gauti scooterius ir išsiųsti į reaktą
+// kreipiames i scooterius, is DB pasirasome SELECT, ta selecta atiduodame duomenu bazei, su conection uzklausiame(query) serveri, gauname rezultatus ir issiunciame atgal
 app.get('/scooters', (req, res) => {
   const sql = `
     SELECT *
@@ -157,10 +160,10 @@ app.get('/scooters-code', (req, res) => {
   FROM scooters
   `;
   con.query(sql, (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
+    if (err) {
+      throw err;
+    }
+    res.send(results);
   })
 })
 // ----------------------------------------------------------------------------------------------------------
@@ -172,10 +175,10 @@ app.get('/scooters-filter/:t', (req, res) => {
   WHERE registration_code = ?
   `;
   con.query(sql, [req.params.t], (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
+    if (err) {
+      throw err;
+    }
+    res.send(results);
   })
 })
 // ---------------------------------------------------------------------------
@@ -187,9 +190,9 @@ app.get('/scooters-search', (req, res) => {
   WHERE registration_code like ?
   `;
   con.query(sql, ['%' + req.query.s + '%'], (err, results) => {
-      if (err) {
-          throw err;
-      }
-      res.send(results);
+    if (err) {
+      throw err;
+    }
+    res.send(results);
   })
 })

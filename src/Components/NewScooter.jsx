@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function NewScooter({ create }) {
 
+    // STATE bus objektas (buvo galima daryti keturis steitus ir jiems priskirti kontroliavimas, bet darem paparasciau, vienas steitas, kuris kontroliuoja 4 inputus)
     const [inputs, setInputs] = useState({
         registration_code: '',
         is_busy: false,
@@ -10,6 +11,7 @@ function NewScooter({ create }) {
         one_day_ride: ''
     })
 
+    // inputu kontroliavimas, daroma inputu kopija nes tiesiogiai steito keisti negalima, norint gauti reiksme naudojam e.target.value
     const control = (e, what) => {
         const inputsCopy = { ...inputs };
         inputsCopy[what] = e.target.value;
@@ -21,6 +23,7 @@ function NewScooter({ create }) {
 
     const handleCreate = () => {
         create(inputs);
+        // resetina inputu info kai sukuriamas naujas scooteris
         setInputs({
             registration_code: '',
             is_busy: false,
@@ -32,6 +35,7 @@ function NewScooter({ create }) {
 
 
     return (
+        // Cia yr akontroliuojamas komponentas. Kiekvienas inputas turi savo STATE, be State bueji begaslim kontroliuoti. Yra būdingas onChange eventas, jis pasileis kai ką nors įrašysim.
             <div className='new-item'>
                 <div className='each-new-item'>
                     <span>New registration code: </span> <input type="text" value={inputs.registration_code} onChange={(e) => control(e, 'registration_code')} placeholder='8 number/letter combo' required minLength="8" maxLength="8" onKeyPress={(event) => {
