@@ -23,6 +23,18 @@ function NewScooter({ create }) {
 
     const handleCreate = () => {
         create(inputs);
+        if(inputs.registration_code === '') {
+           alert('Registration code field can not be empty');
+        }
+        if(inputs.last_use_time === 'mm/dd/yyyy') {
+            alert('Last use time field can not be empty');
+        }
+        if(inputs.total_ride_kilometers === '') {
+            alert('Total ride kilometers field can not be empty');
+        }
+        if(inputs.one_day_ride === '') {
+            alert('One day ride field can not be empty');
+        }
         // resetina inputu info kai sukuriamas naujas scooteris
         setInputs({
             registration_code: '',

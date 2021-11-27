@@ -74,6 +74,7 @@ app.delete('/scooters/:id', (req, res) => {
       throw err;
     }
     res.send(result);
+    console.log("Scooter was deleted");
   })
 })
 
@@ -96,6 +97,7 @@ app.put('/scooters/:id', (req, res) => {
       throw err;
     }
     res.send(results);
+    console.log("Scooter was edited");
   })
 })
 
@@ -117,6 +119,7 @@ app.post('/scooters', (req, res) => {
       throw err;
     }
     res.send(results);
+    console.log("Scooter was created");
   })
 })
 
