@@ -49,15 +49,15 @@ function NewScooter({ create }) {
         <h2>New scooter</h2>
         <div className='new-item'>
             <div className='each-new-item'>
-                <span>New registration code: </span> <input type="text" value={inputs.registration_code} onChange={(e) => control(e, 'registration_code')} placeholder='8 number/letter combo' required minLength="8" maxLength="8" onKeyPress={(event) => {
+                <span>New registration code: </span> <input type="text" value={inputs.registration_code} onChange={(e) => control(e, 'registration_code')} placeholder='8 number/letter combo' minLength="8" maxLength="8" onKeyPress={(event) => {
                     if (!/[ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789]/.test(event.key)) { event.preventDefault(); }
                 }} />
             </div>
             <div className='each-new-item'>
-                <span>New use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} required />
+                <span>New use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} />
             </div>
             <div className='each-new-item'>
-                <span>New one day ride kilometers: </span> <input type="text" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')} placeholder='insert day km' required onKeyPress={(event) => {
+                <span>New one day ride kilometers: </span> <input type="text" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')} placeholder='insert day km' onKeyPress={(event) => {
                     if (!/[0-9]/.test(event.key)) { event.preventDefault(); }
                 }} />
             </div>
