@@ -31,7 +31,8 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
 
     const handleEdit = () => {
         if(inputs.one_day_ride === '') {
-            alert('One day ride field can not be empty');
+            alert('One day ride field can not be empty - it will be reseted upto 0');
+            inputs.one_day_ride = 0;
         }
         edit({
             registration_code: inputs.registration_code,
