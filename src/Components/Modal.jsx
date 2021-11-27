@@ -62,10 +62,10 @@ function Modal({ showModal, hide, modalElement, edit, deleteScooter }) {
             </div>
 
             <div className='each-modal'>
-                <span>Update use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} required />
+                <span>Update use time: </span> <input type='date' value={inputs.last_use_time} onChange={(e) => control(e, 'last_use_time')} />
             </div>
             <div className='each-modal'>
-                <span>Update one day ride kilometers: </span> <input type="text" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')} required 
+                <span>Update one day ride kilometers: </span> <input type="text" value={inputs.one_day_ride} onChange={(e) => control(e, 'one_day_ride')}  
                 onKeyPress={(event) => {if (!/[0-9]/.test(event.key)) { event.preventDefault(); }}} />
             </div>
             <div className='each-modal'>

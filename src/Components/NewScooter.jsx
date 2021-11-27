@@ -29,9 +29,6 @@ function NewScooter({ create }) {
         if (inputs.last_use_time === 'mm/dd/yyyy') {
             alert('Last use time field can not be empty');
         }
-        if (inputs.total_ride_kilometers === '') {
-            alert('Total ride kilometers field can not be empty');
-        }
         if (inputs.one_day_ride === '') {
             alert('One day ride field can not be empty');
         }
