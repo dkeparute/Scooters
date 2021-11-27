@@ -112,7 +112,7 @@ app.post('/scooters', (req, res) => {
     req.body.registration_code,
     req.body.is_busy,
     req.body.last_use_time,
-    req.body.total_ride_kilometers,
+    parseFloat(req.body.total_ride_kilometers) + parseFloat(req.body.one_day_ride),
     req.body.one_day_ride,
   ], (err, results) => {
     if (err) {
